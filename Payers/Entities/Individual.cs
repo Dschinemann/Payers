@@ -10,6 +10,11 @@ namespace Payers.Entities
     {
         public double HealthExpenditures { get; private set; }
 
+        public Individual(double healthExpenditures, string name, double income) : base(name, income)
+        {
+            HealthExpenditures = healthExpenditures;
+        }
+
         public override double tax()
         {
             double tax = 0;

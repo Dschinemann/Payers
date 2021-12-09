@@ -8,10 +8,27 @@ namespace Payers.Entities
 {
     class Company : Payer
     {
-        public int numberOfEmployees { get; private set; }
+        public int NumberOfEmployees { get; private set; }
+
+        public Company(int numberOfEmployees, string name, double income) : base(name, income)
+        {
+            NumberOfEmployees = numberOfEmployees;
+        }
         public override double tax()
         {
-            throw new NotImplementedException();
+            double totalTax = 0;
+            double taxDiscount = 0;
+
+            if (NumberOfEmployees > 10)
+            {
+                taxDiscount = (Income * 0.14);
+            }
+            else
+            {
+                taxDiscount = (Income * 0.16);
+            }
+            return taxDiscount;
         }
+
     }
 }
